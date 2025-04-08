@@ -16,8 +16,7 @@
 }
 
 @theme {
-  --font-mono: "Times New Roman", Times, serif;
-
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   --breakpoint-xs: 24.5rem;
   --breakpoint-3xl: 102rem;
 
