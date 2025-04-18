@@ -1,22 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap");
+/* 1. Define your custom font */
+@font-face {
+  font-family: 'ServerMono';
+  src: url('/fonts/ServerMono‑Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+/* 2. Your Tailwind imports and rest of the file… */
 @import "tailwindcss";
-
 @import "./src/css/sonner.css";
 @import "./src/css/viewerjs.css";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
-@custom-variant hover {
-  @media (pointer: fine) {
-    &:hover {
-      @slot;
-    }
-  }
+/* 3. Update your theme’s --font-mono variable */
+@theme {
+  --font-mono: 'ServerMono', ui-monospace, SFMono‑Regular, Menlo, Monaco,
+                Consolas, 'Liberation Mono', 'Courier New', monospace;
+  /* …the rest of your custom properties… */
 }
 
-@theme {
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+/* 4. Your @layer base/components etc. remain unchanged */
   --breakpoint-xs: 24.5rem;
   --breakpoint-3xl: 102rem;
 
