@@ -169,23 +169,23 @@
   @apply text-gray-200 dark:text-green-300/50; /* Very dim neon green */
  }
  @utility text-icon {
-  @apply text-gray-800 dark:text-green-300; /* Brighter neon green for icons */
+  @apply text-gray-800 dark:text-green-400; /* Changed to match main text neon green for icons */
  }
  @utility text-error {
   @apply text-red-500 dark:text-red-400;
  }
  /* Border */
  @utility border-main {
-  @apply border border-gray-200 dark:border-gray-700;
+  @apply border border-gray-200 dark:border-green-400; /* Changed to neon green */
  }
  @utility divide-main {
-  @apply divide-gray-200 dark:divide-gray-700;
+  @apply divide-gray-200 dark:divide-green-400; /* Changed to neon green */
  }
  @utility border-medium {
-  @apply border border-gray-200 dark:border-gray-800;
+  @apply border border-gray-200 dark:border-green-400; /* Changed to neon green */
  }
  @utility divide-medium {
-  @apply divide-gray-200 dark:divide-gray-800;
+  @apply divide-gray-200 dark:divide-green-400; /* Changed to neon green */
  }
  
 /* Background */
@@ -239,13 +239,13 @@
     @apply font-mono text-sm md:text-base
       text-main
       bg-main
-      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
+      tracking-[0.2em]; /* Increased letter spacing */
   }
   /* Forms */
   label {
     @apply font-sans font-medium block uppercase text-xs
-      text-medium
-      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.1em) */
+      text-green-400 dark:text-green-400 /* Changed to neon green for tag headings */
+      tracking-[0.2em]; /* Increased letter spacing */
   }
   .control,
   button,
@@ -258,9 +258,9 @@
     @apply px-2.5 py-2
       border rounded-md
       bg-main
-      border-gray-200 dark:border-gray-700
+      border-gray-200 dark:border-green-400 /* Changed to neon green */
       font-mono text-base leading-tight
-      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
+      tracking-[0.2em]; /* Increased letter spacing */
   }
   input[type="text"],
   input[type="email"],
@@ -296,13 +296,13 @@
       file:bg-white dark:file:bg-gray-950
       file:mr-2 file:my-2 file:px-4 file:py-1.5 file:rounded-md
       file:border-solid file:border
-      file:border-gray-200 dark:file:border-gray-700
+      file:border-gray-200 dark:file:border-green-400 /* Changed to neon green */
       file:cursor-pointer
       file:shadow-xs
       file:active:bg-gray-100
       file:disabled:bg-gray-100
-      file:hover:border-gray-300 file:dark:hover:border-gray-600
-      file:hover:disabled:border-gray-200 file:dark:hover:disabled:border-gray-700
+      file:hover:border-gray-300 file:dark:hover:border-green-300 /* Adjusted hover color */
+      file:hover:disabled:border-gray-200 file:dark:hover:disabled:border-green-400 /* Adjusted disabled hover color */
       file:active:disabled:bg-white
       file:hover:disabled:cursor-not-allowed;
   }
@@ -322,7 +322,7 @@
       text-base
       shadow-xs
       active:bg-gray-100 dark:active:bg-gray-900
-      hover:border-gray-300 dark:hover:border-gray-600
+      hover:border-gray-300 dark:hover:border-green-300 /* Adjusted hover color */
       disabled:cursor-not-allowed
       disabled:text-dim
       disabled:bg-gray-100 dark:disabled:bg-gray-900
@@ -358,7 +358,11 @@
   }
   a,
   .link {
-    @apply hover:text-medium tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
+    @apply hover:text-medium tracking-[0.2em]; /* Increased letter spacing */
+  }
+  /* Tag buttons - adding increased letter spacing */
+  .tag-button {
+    @apply tracking-[0.2em];
   }
 }
 
