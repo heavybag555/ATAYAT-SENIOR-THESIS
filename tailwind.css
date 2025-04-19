@@ -237,14 +237,17 @@
   body {
     @apply font-mono text-sm md:text-base
       text-main
-      bg-main;
+      bg-main
+      tracking-[0.05em]; /* Adjust letter spacing here (e.g., 0.05em) */
   }
+
   /* Forms */
   label {
     @apply font-sans font-medium block uppercase text-xs
       text-medium
-      tracking-wider;
+      tracking-[0.1em]; /* Adjust letter spacing here (e.g., 0.1em) */
   }
+
   .control,
   button,
   .button,
@@ -257,8 +260,10 @@
       border rounded-md
       bg-main
       border-gray-200 dark:border-gray-700
-      font-mono text-base leading-tight;
+      font-mono text-base leading-tight
+      tracking-[0.05em]; /* Adjust letter spacing here (e.g., 0.05em) */
   }
+
   input[type="text"],
   input[type="email"],
   input[type="password"],
@@ -355,7 +360,7 @@
   }
   a,
   .link {
-    @apply hover:text-medium;
+    @apply hover:text-medium tracking-[0.05em]; /* Adjust letter spacing here (e.g., 0.05em) */
   }
 }
 
