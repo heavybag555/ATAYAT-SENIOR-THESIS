@@ -9,7 +9,7 @@
 @font-face {
   font-family: "Digitalism";
   src: url("/public/fonts/digitalism.ttf") format("ttf"),
-       url("/public/fonts/digitalism.ttf") format("ttf");
+    url("/public/fonts/digitalism.ttf") format("ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -30,7 +30,8 @@
 }
 
 @theme {
-  --font-mono: "digitalism", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; /* Updated font family */
+  --font-mono: "digitalism", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace; /* Updated font family */
   --breakpoint-xs: 24.5rem;
   --breakpoint-3xl: 102rem;
 
@@ -237,13 +238,14 @@
   body {
     @apply font-mono text-sm md:text-base
       text-main
-      bg-main;
+      bg-main
+      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
   }
   /* Forms */
   label {
     @apply font-sans font-medium block uppercase text-xs
       text-medium
-      tracking-wider;
+      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.1em) */
   }
   .control,
   button,
@@ -257,7 +259,8 @@
       border rounded-md
       bg-main
       border-gray-200 dark:border-gray-700
-      font-mono text-base leading-tight;
+      font-mono text-base leading-tight
+      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
   }
   input[type="text"],
   input[type="email"],
@@ -355,7 +358,7 @@
   }
   a,
   .link {
-    @apply hover:text-medium;
+    @apply hover:text-medium tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
   }
 }
 
