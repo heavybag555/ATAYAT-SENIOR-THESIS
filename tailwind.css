@@ -35,11 +35,11 @@
   --breakpoint-xs: 24.5rem;
   --breakpoint-3xl: 102rem;
 
-  --text-xs: 0.75rem;
+  --text-xs: 0.95rem;
   --text-xs--line-height: 1rem;
-  --text-sm: 0.84375rem;
+  --text-sm: 0.95rem;
   --text-sm--line-height: 1.1875rem;
-  --text-base: 0.875rem;
+  --text-base: 1;
   --text-base--line-height: 1.25rem;
   --text-lg: 1rem;
   --text-lg--line-height: 1.25rem;
@@ -239,8 +239,22 @@
     @apply font-mono text-sm md:text-base
       text-main
       bg-main
-      tracking-[0.2em]; /* Increased letter spacing */
+      tracking-[0.2em]; /* Base tracking applied to body */
   }
+  
+  /* Text size specific tracking */
+  .text-xs {
+    @apply tracking-[0.2em];
+  }
+  
+  .text-sm {
+    @apply tracking-[0.2em];
+  }
+  
+  .text-base {
+    @apply tracking-[0.2em];
+  }
+  
   /* Forms */
   label {
     @apply font-sans font-medium block uppercase text-xs
