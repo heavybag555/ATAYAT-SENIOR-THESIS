@@ -145,49 +145,49 @@
 /* Text Primitives */
 @utility text-dark {
   @apply text-gray-900;
-}
-@utility text-light {
-  @apply text-gray-100;
-}
-
-/* Text */
-@utility text-main {
-  @apply text-dark dark:text-light;
-}
-@utility text-invert {
+ }
+ @utility text-light {
+  @apply text-green-400; /* Changed to neon green */
+ }
+ /* Text */
+ @utility text-main {
+  @apply text-dark dark:text-green-400; /* Changed to neon green for dark mode */
+ }
+ @utility text-invert {
   @apply text-light dark:text-dark;
-}
-@utility text-medium {
-  @apply text-gray-500 dark:text-gray-400;
-}
-@utility text-dim {
-  @apply text-gray-400 dark:text-gray-500;
-}
-@utility text-extra-dim {
-  @apply text-gray-400/80 dark:text-gray-400/50;
-}
-@utility text-extra-extra-dim {
-  @apply text-gray-200 dark:text-gray-800;
-}
-@utility text-icon {
-  @apply text-gray-800 dark:text-gray-200;
-}
-@utility text-error {
+ }
+ @utility text-medium {
+  @apply text-gray-500 dark:text-green-500; /* Adjusted for dark mode */
+ }
+ @utility text-dim {
+  @apply text-gray-400 dark:text-green-600; /* Darker neon green for dim text */
+ }
+ @utility text-extra-dim {
+  @apply text-gray-400/80 dark:text-green-400/70; /* Semi-transparent neon green */
+ }
+ @utility text-extra-extra-dim {
+  @apply text-gray-200 dark:text-green-300/50; /* Very dim neon green */
+ }
+ @utility text-icon {
+  @apply text-gray-800 dark:text-green-300; /* Brighter neon green for icons */
+ }
+ @utility text-error {
   @apply text-red-500 dark:text-red-400;
-}
-/* Border */
-@utility border-main {
+ }
+ /* Border */
+ @utility border-main {
   @apply border border-gray-200 dark:border-gray-700;
-}
-@utility divide-main {
+ }
+ @utility divide-main {
   @apply divide-gray-200 dark:divide-gray-700;
-}
-@utility border-medium {
+ }
+ @utility border-medium {
   @apply border border-gray-200 dark:border-gray-800;
-}
-@utility divide-medium {
+ }
+ @utility divide-medium {
   @apply divide-gray-200 dark:divide-gray-800;
-}
+ }
+ 
 /* Background */
 @utility bg-main {
   @apply bg-white dark:bg-black;
@@ -239,16 +239,14 @@
     @apply font-mono text-sm md:text-base
       text-main
       bg-main
-      tracking-[0.2em]; /* Letter spacing set to 0.2em */
+      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
   }
-
   /* Forms */
   label {
     @apply font-sans font-medium block uppercase text-xs
       text-medium
-      tracking-[0.2em]; /* Letter spacing set to 0.2em */
+      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.1em) */
   }
-
   .control,
   button,
   .button,
@@ -262,19 +260,8 @@
       bg-main
       border-gray-200 dark:border-gray-700
       font-mono text-base leading-tight
-      tracking-[0.2em]; /* Letter spacing set to 0.2em */
+      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
   }
-
-  a,
-  .link {
-    @apply hover:text-medium tracking-[0.2em]; /* Letter spacing set to 0.2em */
-  }
-
-  /* Sidebar Tags */
-  .sidebar-tag {
-    @apply text-sm font-mono tracking-[0.2em] text-main dark:text-[#39ff14]; /* Neon green in dark mode */
-  }
-
   input[type="text"],
   input[type="email"],
   input[type="password"],
@@ -369,24 +356,9 @@
     @apply p-0 min-h-0
       border-none bg-transparent active:bg-transparent shadow-none rounded-none;
   }
-}
-
-@layer utilities {
-  /* Neon Green Text for Dark Mode */
-  .text-neon-green {
-    @apply text-[#39ff14] dark:text-[#39ff14]; /* Neon green for dark mode */
-  }
-
-  .glow-neon {
-    @apply dark:shadow-[0_0_8px_#39ff14,0_0_16px_#39ff14]; /* Neon glow effect */
-  }
-
-  .hover-glow-neon {
-    @apply transition-all duration-300 ease-in-out; /* Smooth hover transition */
-  }
-
-  .hover-glow-neon:hover {
-    @apply shadow-[0_0_8px_#39ff14,0_0_16px_#39ff14]; /* Glow effect on hover */
+  a,
+  .link {
+    @apply hover:text-medium tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
   }
 }
 
@@ -402,15 +374,5 @@
   }
   .component-surface-frosted {
     @apply text-black bg-neutral-200/95 rounded-lg;
-  }
-
-  /* Sidebar Tags Component */
-  .sidebar-tags {
-    @apply flex flex-wrap gap-2; /* Ensure proper spacing for tags */
-  }
-
-  .sidebar-tag {
-    @apply px-2 py-1 rounded-md bg-gray-200 dark:bg-gray-900
-      text-main dark:text-[#39ff14] tracking-[0.2em]; /* Neon green and letter spacing */
   }
 }
