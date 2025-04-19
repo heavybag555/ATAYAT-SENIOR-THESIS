@@ -239,14 +239,16 @@
     @apply font-mono text-sm md:text-base
       text-main
       bg-main
-      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
+      tracking-[0.2em]; /* Letter spacing set to 0.2em */
   }
+
   /* Forms */
   label {
     @apply font-sans font-medium block uppercase text-xs
       text-medium
-      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.1em) */
+      tracking-[0.2em]; /* Letter spacing set to 0.2em */
   }
+
   .control,
   button,
   .button,
@@ -260,8 +262,19 @@
       bg-main
       border-gray-200 dark:border-gray-700
       font-mono text-base leading-tight
-      tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
+      tracking-[0.2em]; /* Letter spacing set to 0.2em */
   }
+
+  a,
+  .link {
+    @apply hover:text-medium tracking-[0.2em]; /* Letter spacing set to 0.2em */
+  }
+
+  /* Sidebar Tags */
+  .sidebar-tag {
+    @apply text-sm font-mono tracking-[0.2em] text-main dark:text-[#39ff14]; /* Neon green in dark mode */
+  }
+
   input[type="text"],
   input[type="email"],
   input[type="password"],
@@ -356,9 +369,24 @@
     @apply p-0 min-h-0
       border-none bg-transparent active:bg-transparent shadow-none rounded-none;
   }
-  a,
-  .link {
-    @apply hover:text-medium tracking-[0.2em]; /* Adjust letter spacing here (e.g., 0.05em) */
+}
+
+@layer utilities {
+  /* Neon Green Text for Dark Mode */
+  .text-neon-green {
+    @apply text-[#39ff14] dark:text-[#39ff14]; /* Neon green for dark mode */
+  }
+
+  .glow-neon {
+    @apply dark:shadow-[0_0_8px_#39ff14,0_0_16px_#39ff14]; /* Neon glow effect */
+  }
+
+  .hover-glow-neon {
+    @apply transition-all duration-300 ease-in-out; /* Smooth hover transition */
+  }
+
+  .hover-glow-neon:hover {
+    @apply shadow-[0_0_8px_#39ff14,0_0_16px_#39ff14]; /* Glow effect on hover */
   }
 }
 
@@ -374,5 +402,15 @@
   }
   .component-surface-frosted {
     @apply text-black bg-neutral-200/95 rounded-lg;
+  }
+
+  /* Sidebar Tags Component */
+  .sidebar-tags {
+    @apply flex flex-wrap gap-2; /* Ensure proper spacing for tags */
+  }
+
+  .sidebar-tag {
+    @apply px-2 py-1 rounded-md bg-gray-200 dark:bg-gray-900
+      text-main dark:text-[#39ff14] tracking-[0.2em]; /* Neon green and letter spacing */
   }
 }
