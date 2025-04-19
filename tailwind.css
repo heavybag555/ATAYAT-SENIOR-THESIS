@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap");
+@import url("https://fonts.cdnfonts.com/css/server-mono"); /* Replace with the correct URL for ServerMono */
 
 @import "tailwindcss";
 
@@ -16,7 +16,7 @@
 }
 
 @theme {
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-mono: "ServerMono-Regular", "ServerMono-Italic", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; /* Updated font family */
   --breakpoint-xs: 24.5rem;
   --breakpoint-3xl: 102rem;
 
