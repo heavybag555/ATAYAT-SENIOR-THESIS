@@ -1,5 +1,22 @@
 @import url("https://fonts.cdnfonts.com/css/server-mono"); /* Replace with the correct URL for ServerMono */
 
+/* Define the Digitalism font */
+@font-face {
+  font-family: "Digitalism";
+  src: url("/public/fonts/Digitalism-Regular.woff2") format("woff2"),
+       url("/public/fonts/Digitalism-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Digitalism";
+  src: url("/public/fonts/Digitalism-Italic.woff2") format("woff2"),
+       url("/public/fonts/Digitalism-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
 @import "tailwindcss";
 
 @import "./src/css/sonner.css";
@@ -16,7 +33,7 @@
 }
 
 @theme {
-  --font-mono: "ServerMono-Regular", "ServerMono-Italic", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; /* Updated font family */
+  --font-mono: "Digitalism", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; /* Updated font family */
   --breakpoint-xs: 24.5rem;
   --breakpoint-3xl: 102rem;
 
