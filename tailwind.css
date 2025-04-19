@@ -49,38 +49,6 @@
   --text-3xl: 1.5rem;
   --text-3xl--line-height: 1.5rem;
 
-  /* Neon colors */
-  --neon-green: #39ff14;
-  --neon-green-glow-sm: 0 0 2px var(--neon-green);
-  --neon-green-glow-md: 0 0 4px var(--neon-green), 0 0 8px rgba(57, 255, 20, 0.7);
-  --neon-green-glow-lg: 0 0 7px var(--neon-green), 0 0 10px rgba(57, 255, 20, 0.8), 0 0 21px rgba(57, 255, 20, 0.6);
-  --neon-green-glow-xl: 0 0 10px var(--neon-green), 0 0 21px var(--neon-green), 0 0 42px rgba(57, 255, 20, 0.7);
-
-  /* Animation for neon flicker effect */
-  --animate-neon-flicker: neon-flicker 1.5s infinite alternate;
-  @keyframes neon-flicker {
-    0%, 18%, 22%, 25%, 53%, 57%, 100% {
-      text-shadow: var(--neon-green-glow-md);
-    }
-    20%, 24%, 55% {
-      text-shadow: none;
-    }
-  }
-
-  /* Animation for neon pulse effect */
-  --animate-neon-pulse: neon-pulse 2s infinite;
-  @keyframes neon-pulse {
-    0% {
-      text-shadow: var(--neon-green-glow-sm);
-    }
-    50% {
-      text-shadow: var(--neon-green-glow-md);
-    }
-    100% {
-      text-shadow: var(--neon-green-glow-sm);
-    }
-  }
-
   --animate-fade-in: fade-in 0.5s linear both running;
   @keyframes fade-in {
     0% {
@@ -206,30 +174,6 @@
 @utility text-error {
   @apply text-red-500 dark:text-red-400;
 }
-
-/* Neon text utilities */
-@utility text-neon {
-  @apply dark:text-[#39ff14] dark:font-mono dark:font-bold dark:shadow-[0_0_4px_#39ff14,0_0_8px_rgba(57,255,20,0.7)];
-}
-@utility text-neon-sm {
-  @apply dark:text-[#39ff14] dark:shadow-[0_0_2px_#39ff14];
-}
-@utility text-neon-md {
-  @apply dark:text-[#39ff14] dark:shadow-[0_0_4px_#39ff14,0_0_8px_rgba(57,255,20,0.7)];
-}
-@utility text-neon-lg {
-  @apply dark:text-[#39ff14] dark:shadow-[0_0_7px_#39ff14,0_0_10px_rgba(57,255,20,0.8),0_0_21px_rgba(57,255,20,0.6)];
-}
-@utility text-neon-xl {
-  @apply dark:text-[#39ff14] dark:shadow-[0_0_10px_#39ff14,0_0_21px_#39ff14,0_0_42px_rgba(57,255,20,0.7)];
-}
-@utility text-neon-flicker {
-  @apply dark:animate-[neon-flicker_1.5s_infinite_alternate];
-}
-@utility text-neon-pulse {
-  @apply dark:animate-[neon-pulse_2s_infinite];
-}
-
 /* Border */
 @utility border-main {
   @apply border border-gray-200 dark:border-gray-700;
@@ -243,15 +187,6 @@
 @utility divide-medium {
   @apply divide-gray-200 dark:divide-gray-800;
 }
-
-/* Neon border utilities */
-@utility border-neon {
-  @apply dark:border dark:border-[#39ff14] dark:shadow-[0_0_4px_#39ff14,0_0_8px_rgba(57,255,20,0.7)];
-}
-@utility border-neon-lg {
-  @apply dark:border dark:border-[#39ff14] dark:shadow-[0_0_7px_#39ff14,0_0_10px_rgba(57,255,20,0.8),0_0_21px_rgba(57,255,20,0.6)];
-}
-
 /* Background */
 @utility bg-main {
   @apply bg-white dark:bg-black;
@@ -271,15 +206,6 @@
 @utility bg-invert {
   @apply bg-gray-900 dark:bg-gray-100;
 }
-
-/* Neon background utilities */
-@utility bg-neon-subtle {
-  @apply dark:bg-[rgba(57,255,20,0.03)];
-}
-@utility bg-neon-highlight {
-  @apply dark:bg-[rgba(57,255,20,0.15)];
-}
-
 /* Baseline Grid */
 @utility space-y-baseline {
   @apply space-y-[1.1875rem] md:space-y-[1.25rem];
@@ -313,32 +239,10 @@
       text-main
       bg-main;
   }
-  
-  /* Dark mode text overrides for neon effect */
-  h1 {
-    @apply dark:text-neon-xl dark:text-neon-flicker;
-  }
-  
-  h2 {
-    @apply dark:text-neon-lg;
-  }
-  
-  h3, h4 {
-    @apply dark:text-neon-md;
-  }
-  
-  h5, h6 {
-    @apply dark:text-neon-sm;
-  }
-  
-  p {
-    @apply dark:text-[#39ff14] dark:text-opacity-90;
-  }
-  
   /* Forms */
   label {
     @apply font-sans font-medium block uppercase text-xs
-      text-medium dark:text-[#39ff14] dark:text-opacity-80
+      text-medium
       tracking-wider;
   }
   .control,
@@ -353,8 +257,7 @@
       border rounded-md
       bg-main
       border-gray-200 dark:border-gray-700
-      font-mono text-base leading-tight
-      dark:focus:border-[#39ff14] dark:focus:shadow-[0_0_4px_rgba(57,255,20,0.7)];
+      font-mono text-base leading-tight;
   }
   input[type="text"],
   input[type="email"],
@@ -364,8 +267,7 @@
     @apply text-[1rem] /* Prevent iOS auto-zoom behavior */
       read-only:cursor-default
       outline-blue-600 ring-blue-600 appearance-none
-      focus:outline-2 -outline-offset-2 focus:ring-0
-      dark:text-[#39ff14] dark:caret-[#39ff14];
+      focus:outline-2 -outline-offset-2 focus:ring-0;
   }
   input[type="text"],
   input[type="email"],
@@ -378,14 +280,13 @@
   input[type="password"],
   textarea {
     @apply read-only:bg-gray-100
-      dark:read-only:bg-gray-900 dark:read-only:text-[#39ff14] dark:read-only:text-opacity-60;
+      dark:read-only:bg-gray-900 dark:read-only:text-gray-400;
   }
   /* Required for readonly behavior on <select /> */
   .disabled-select {
     @apply text-medium
       bg-gray-100 dark:bg-gray-900
-      pointer-events-none
-      dark:text-[#39ff14] dark:text-opacity-60;
+      pointer-events-none;
   }
   input[type="file"] {
     @apply block font-mono w-full text-medium
@@ -397,15 +298,14 @@
       file:shadow-xs
       file:active:bg-gray-100
       file:disabled:bg-gray-100
-      file:hover:border-gray-300 file:dark:hover:border-[#39ff14]
+      file:hover:border-gray-300 file:dark:hover:border-gray-600
       file:hover:disabled:border-gray-200 file:dark:hover:disabled:border-gray-700
       file:active:disabled:bg-white
-      file:hover:disabled:cursor-not-allowed
-      dark:text-[#39ff14] dark:text-opacity-80;
+      file:hover:disabled:cursor-not-allowed;
   }
   input[type="checkbox"] {
     @apply rounded-md
-      dark:bg-transparent dark:checked:bg-[#39ff14] dark:border-[#39ff14];
+      dark:bg-transparent;
   }
   .error {
     @apply border-red-500 dark:border-red-400;
@@ -419,13 +319,11 @@
       text-base
       shadow-xs
       active:bg-gray-100 dark:active:bg-gray-900
-      hover:border-gray-300 dark:hover:border-[#39ff14]
+      hover:border-gray-300 dark:hover:border-gray-600
       disabled:cursor-not-allowed
       disabled:text-dim
       disabled:bg-gray-100 dark:disabled:bg-gray-900
-      disabled:border-gray-200 disabled:dark:border-gray-700
-      dark:text-[#39ff14]
-      dark:hover:shadow-[0_0_4px_rgba(57,255,20,0.7)];
+      disabled:border-gray-200 disabled:dark:border-gray-700;
   }
   button.subtle,
   .button.subtle {
@@ -436,18 +334,16 @@
   button.primary,
   .button.primary {
     @apply text-invert
-      bg-gray-900 dark:bg-[rgba(57,255,20,0.15)]
+      bg-gray-900 dark:bg-gray-100
       disabled:text-dim
       font-medium
       disabled:bg-gray-100 dark:disabled:bg-gray-900
       disabled:border-gray-200 disabled:dark:border-gray-700
-      border-gray-900 dark:border-[#39ff14]
-      hover:border-gray-900 dark:hover:border-[#39ff14]
+      border-gray-900 dark:border-gray-100
+      hover:border-gray-900 dark:hover:border-gray-100
       active:bg-gray-700 active:border-gray-700
-      active:dark:bg-[rgba(57,255,20,0.25)] active:dark:border-[#39ff14]
-      shadow-none
-      dark:text-[#39ff14] dark:shadow-[0_0_4px_rgba(57,255,20,0.5)]
-      dark:hover:shadow-[0_0_7px_rgba(57,255,20,0.7)];
+      active:dark:bg-gray-300 active:dark:border-gray-300
+      shadow-none;
   }
   button.primary.disabled,
   .button.primary.disabled {
@@ -459,13 +355,13 @@
   }
   a,
   .link {
-    @apply hover:text-medium dark:text-[#39ff14] dark:hover:text-opacity-80 dark:hover:shadow-[0_0_4px_rgba(57,255,20,0.7)];
+    @apply hover:text-medium;
   }
 }
 
 @layer components {
   .component-surface {
-    @apply text-main bg-content rounded-lg dark:shadow-[0_0_1px_#39ff14];
+    @apply text-main bg-content rounded-lg;
   }
   .component-surface-light {
     @apply text-dark bg-white rounded-lg;
@@ -475,30 +371,5 @@
   }
   .component-surface-frosted {
     @apply text-black bg-neutral-200/95 rounded-lg;
-  }
-  
-  /* New neon-specific components */
-  .neon-card {
-    @apply dark:bg-black dark:border dark:border-[#39ff14] dark:shadow-[0_0_7px_rgba(57,255,20,0.5)] dark:text-[#39ff14] rounded-lg p-4;
-  }
-  
-  .neon-button {
-    @apply dark:bg-black dark:border dark:border-[#39ff14] dark:text-[#39ff14] dark:shadow-[0_0_4px_rgba(57,255,20,0.5)]
-      dark:hover:shadow-[0_0_7px_rgba(57,255,20,0.7),0_0_14px_rgba(57,255,20,0.4)]
-      dark:active:bg-[rgba(57,255,20,0.1)] transition-all duration-300;
-  }
-  
-  .neon-input {
-    @apply dark:bg-black dark:border dark:border-[#39ff14] dark:text-[#39ff14] dark:caret-[#39ff14]
-      dark:focus:shadow-[0_0_4px_rgba(57,255,20,0.5),0_0_8px_rgba(57,255,20,0.3)]
-      dark:placeholder-[#39ff14] dark:placeholder-opacity-50;
-  }
-  
-  .neon-header {
-    @apply dark:text-[#39ff14] dark:font-bold dark:shadow-[0_0_7px_rgba(57,255,20,0.7),0_0_14px_rgba(57,255,20,0.4)] dark:text-neon-flicker;
-  }
-  
-  .neon-border {
-    @apply dark:border dark:border-[#39ff14] dark:shadow-[0_0_4px_rgba(57,255,20,0.5)];
   }
 }
