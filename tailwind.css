@@ -1,15 +1,15 @@
-/* Define the Digitalism font */
+/* Define the ServerMono font */
 @font-face {
-  font-family: "Digitalism";
-  src: url("/fonts/digitalism.ttf") format("truetype");
+  font-family: "ServerMono";
+  src: url("/fonts/ServerMono-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Digitalism";
-  src: url("/public/fonts/digitalism.ttf") format("ttf"),
-    url("/public/fonts/digitalism.ttf") format("ttf");
+  font-family: "ServerMono";
+  src: url("/public/fonts/ServerMono-Regular.otf") format("otf"),
+    url("/public/fonts/ServerMono-Regular.otf") format("otf");
   font-weight: normal;
   font-style: normal;
 }
@@ -30,7 +30,7 @@
 }
 
 @theme {
-  --font-mono: "digitalism", ui-monospace, SFMono-Regular, Menlo, Monaco,
+  --font-mono: "ServerMono-Regular", ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, "Liberation Mono", "Courier New", monospace; /* Updated font family */
   --breakpoint-xs: 24.5rem;
   --breakpoint-3xl: 102rem;
