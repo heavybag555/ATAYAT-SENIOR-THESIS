@@ -1,26 +1,16 @@
-/* Define the Digitalism font */
+/* Define the ServerMono-Regular font */
 @font-face {
-  font-family: "Digitalism";
-  src: url("/fonts/digitalism.ttf") format("truetype");
+  font-family: "ServerMono";
+  src: url("/fonts/ServerMono-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-  font-family: "Digitalism";
-  src: url("/public/fonts/digitalism.ttf") format("ttf"),
-    url("/public/fonts/digitalism.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
+  font-display: swap; /* Better loading behavior */
 }
 
 @import "tailwindcss";
-
 @import "./src/css/sonner.css";
 @import "./src/css/viewerjs.css";
-
 @custom-variant dark (&:where(.dark, .dark *));
-
 @custom-variant hover {
   @media (pointer: fine) {
     &:hover {
@@ -30,10 +20,11 @@
 }
 
 @theme {
-  --font-mono: "digitalism", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace; /* Updated font family */
+  --font-mono: "ServerMono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
   --breakpoint-xs: 24.5rem;
   --breakpoint-3xl: 102rem;
+}
 
   --text-xs: 0.75rem;
   --text-xs--line-height: 1rem;
@@ -225,7 +216,7 @@
 }
 @utility -mt-baseline {
   @apply -mt-[1.1875rem] md:-mt-[1.25rem];
-}
+} 
 @utility bg-baseline-grid {
   @apply bg-[repeating-linear-gradient(to_bottom,#eee,#eee_1px,transparent_1px,transparent_1.1875rem)]
     md:bg-[repeating-linear-gradient(to_bottom,#eee,#eee_1px,transparent_1px,transparent_1.25rem)]
