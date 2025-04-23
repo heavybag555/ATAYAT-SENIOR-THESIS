@@ -22,6 +22,14 @@
   font-style: normal;
 }
 
+/* Define the Paradise132 font */
+@font-face {
+  font-family: "Paradise132";
+  src: url("/fonts/Web437_Paradise132_7x16.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import "tailwindcss";
 
 @import "./src/css/sonner.css";
@@ -38,7 +46,7 @@
 }
 
 @theme {
-  --font-mono: "OlivettiThin", ui-monospace, SFMono-Regular, Menlo, Monaco,
+  --font-mono: "Paradise132", ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, "Liberation Mono", "Courier New", monospace; /* Updated font family */
   --breakpoint-xs: 24.5rem;
   --breakpoint-3xl: 102rem;
@@ -247,7 +255,7 @@
     @apply font-mono text-sm md:text-base
       text-main
       bg-main
-      tracking-[0.05em]; /* Increased letter spacing */
+      tracking-[0.2em]; /* Maintained letter spacing */
   }
   /* Forms */
   label {
