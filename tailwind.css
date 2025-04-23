@@ -206,7 +206,7 @@
 
 /* Background */
 @utility bg-main {
-  @apply bg-white dark:bg-[#142010]; /* Changed from black to dark forest green */
+  @apply bg-white dark:bg-[#11160F]; /* Changed to darker forest green */
 }
 @utility bg-medium {
   @apply bg-gray-200 dark:bg-gray-700;
@@ -287,10 +287,10 @@
       text-base
       shadow-xs
       bg-gray-100 /* Default background color */
-      dark:bg-[#0B132B] /* Dark theme background color */
+      dark:bg-[#11160F] /* Updated dark theme background color */
       text-main dark:text-white /* Ensure text is readable in dark mode */
       active:bg-gray-200 dark:active:bg-gray-800 /* Adjust active state */
-      hover:border-gray-300 dark:hover:border-[#0B132B] /* Adjust hover border color */
+      hover:border-gray-300 dark:hover:border-[#11160F] /* Adjust hover border color */
       disabled:cursor-not-allowed
       disabled:text-dim
       disabled:bg-gray-100 dark:disabled:bg-gray-900
@@ -356,10 +356,10 @@
       text-base
       shadow-xs
       bg-gray-100 /* Default background color */
-      dark:bg-[#0B132B] /* Dark theme background color */
+      dark:bg-[#11160F] /* Updated dark theme background color */
       text-main dark:text-white /* Ensure text is readable in dark mode */
       active:bg-gray-200 dark:active:bg-gray-800 /* Adjust active state */
-      hover:border-gray-300 dark:hover:border-[#0B132B] /* Adjust hover border color */
+      hover:border-gray-300 dark:hover:border-[#11160F] /* Adjust hover border color */
       disabled:cursor-not-allowed
       disabled:text-dim
       disabled:bg-gray-100 dark:disabled:bg-gray-900
@@ -374,15 +374,15 @@
   button.primary,
   .button.primary {
     @apply text-invert
-      bg-gray-900 dark:bg-[#0B132B] /* Dark theme background color for primary buttons */
+      bg-gray-900 dark:bg-[#11160F] /* Updated dark theme background color */
       disabled:text-dim
       font-medium
       disabled:bg-gray-100 dark:disabled:bg-gray-900
       disabled:border-gray-200 dark:disabled:border-gray-700
-      border-gray-900 dark:border-[#0B132B] /* Adjust border color */
-      hover:border-gray-900 dark:hover:border-[#0B132B] /* Adjust hover border color */
+      border-gray-900 dark:border-[#11160F] /* Adjust border color */
+      hover:border-gray-900 dark:hover:border-[#11160F] /* Adjust hover border color */
       active:bg-gray-700 active:border-gray-700
-      active:dark:bg-gray-800 active:dark:border-[#0B132B]
+      active:dark:bg-gray-800 active:dark:border-[#11160F]
       shadow-none;
   }
   button.primary.disabled,
@@ -411,7 +411,7 @@
     @apply text-dark bg-white rounded-lg;
   }
   .component-surface-dark {
-    @apply text-light bg-[#142010] rounded-lg; /* Changed from black to dark forest green */
+    @apply text-light bg-[#11160F] rounded-lg; /* Changed to darker forest green */
   }
   .component-surface-frosted {
     @apply text-black bg-neutral-200/95 rounded-lg;
