@@ -401,21 +401,6 @@
   .tag-button {
     @apply tracking-[0.1em];
   }
-
-  body.dark {
-    @apply relative; /* Ensure proper stacking context */
-  }
-
-  /* Add this to your existing body styles */
-  body::after {
-    @apply content-[''] dark:block hidden fixed inset-0 pointer-events-none z-[9998];
-    background: 
-      radial-gradient(
-        circle at center,
-        transparent 0,
-        rgba(17, 22, 15, 0.1) 100% /* Subtle vignette using your dark bg color */
-      );
-  }
 }
 
 @layer components {
@@ -430,32 +415,5 @@
   }
   .component-surface-frosted {
     @apply text-black bg-neutral-200/95 rounded-lg;
-  }
-
-  .crt-overlay {
-    @apply hidden dark:block fixed inset-0 pointer-events-none z-[9999];
-  }
-
-  /* CRT screen door effect */
-  .crt-overlay::before {
-    content: "";
-    @apply block absolute inset-0 pointer-events-none;
-    background: 
-      linear-gradient(
-        rgba(18, 16, 16, 0) 50%,
-        rgba(0, 0, 0, 0.15) 50%
-      ),
-      linear-gradient(
-        90deg,
-        rgba(255, 0, 0, 0.03),
-        rgba(57, 255, 20, 0.02), /* Updated to match your neon green */
-        rgba(0, 0, 255, 0.03)
-      );
-    background-size: 100% 2px, 3px 100%;
-  }
-
-  /* Prevent CRT effect on media elements */
-  img, video, canvas, iframe {
-    @apply relative z-[10000]; /* Place above the CRT overlay */
   }
 }
