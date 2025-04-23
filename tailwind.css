@@ -247,13 +247,13 @@
     @apply font-mono text-sm md:text-base
       text-main
       bg-main
-      tracking-[0.1em]; /* Increased letter spacing */
+      tracking-[0.05em]; /* Increased letter spacing */
   }
   /* Forms */
   label {
     @apply font-sans font-medium block uppercase text-xs
       text-green-400 dark:text-green-400 /* Changed to neon green for tag headings */
-      tracking-[0.1em]; /* Increased letter spacing */
+      tracking-[0.05em]; /* Increased letter spacing */
   }
   .control,
   button,
@@ -268,7 +268,7 @@
       bg-main
       border-gray-200 dark:border-green-400 /* Changed to neon green */
       font-mono text-base leading-tight
-      tracking-[0.5em]; /* Increased letter spacing */
+      tracking-[0.05em]; /* Increased letter spacing */
   }
   button,
   .button {
@@ -387,7 +387,7 @@
   }
   a,
   .link {
-    @apply hover:text-medium tracking-[0.1em]; /* Increased letter spacing */
+    @apply hover:text-medium tracking-[0.05em]; /* Increased letter spacing */
   }
   /* Tag buttons - adding increased letter spacing */
   .tag-button {
