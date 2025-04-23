@@ -70,7 +70,7 @@
   --text-2xl--line-height: 1.375rem; /* Was 1.25rem */
 
   --text-3xl: 1.65rem; /* Was 1.5rem */
-  --text-3xl--line-height: 1.65rem; /* Was 1.5rem */
+  --text-3xl--line-height: 1.675rem; /* Was 1.5rem */
 
   --animate-fade-in: fade-in 0.5s linear both running;
   @keyframes fade-in {
