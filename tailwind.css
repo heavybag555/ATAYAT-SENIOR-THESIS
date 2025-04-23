@@ -212,7 +212,7 @@
 
 /* Background */
 @utility bg-main {
-  @apply bg-white dark:bg-[#142010]; /* Changed from black to dark forest green */
+  @apply bg-white dark:bg-[#0A1B08]; /* Updated from #142010 to #0A1B08 */
 }
 @utility bg-medium {
   @apply bg-gray-200 dark:bg-gray-700;
@@ -434,7 +434,7 @@
     @apply text-dark bg-white rounded-lg;
   }
   .component-surface-dark {
-    @apply text-light bg-[#142010] rounded-lg; /* Changed from black to dark forest green */
+    @apply text-light bg-[#0A1B08] rounded-lg; /* Updated from #142010 to #0A1B08 */
   }
   .component-surface-frosted {
     @apply text-black bg-neutral-200/95 rounded-lg;
