@@ -5,6 +5,8 @@ import IconGrid from '@/components/icons/IconGrid';
 import {
   PATH_FEED_INFERRED,
   PATH_GRID_INFERRED,
+  PATH_GRID,
+  PATH_FEED,
 } from '@/app/paths';
 import IconSearch from '../components/icons/IconSearch';
 import { useAppState } from '@/state/AppState';
@@ -39,7 +41,7 @@ export default function ViewSwitcher({
   const renderItemGrid =
     <SwitcherItem
       icon={<IconGrid />}
-      href={PATH_GRID_INFERRED}
+      href={PATH_GRID}
       active={currentSelection === 'grid'}
       noPadding
     />;
