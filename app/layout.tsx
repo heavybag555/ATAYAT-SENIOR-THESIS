@@ -80,6 +80,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Check if we're on the home page
+  const isHomePage = typeof window !== 'undefined' && window.location.pathname === '/';
+
   return (
     <html
       lang="en"
@@ -99,33 +102,30 @@ export default function RootLayout({
                 'mx-3 mb-3',
                 'lg:mx-6 lg:mb-6',
               )}>
-                <Nav navTitleOrDomain={NAV_TITLE_OR_DOMAIN} />
+                {!isHomePage && <Nav navTitleOrDomain={NAV_TITLE_OR_DOMAIN} />}
                 <main>
-                  <ShareModals />
-                  <RecipeModal />
-                  <div className={clsx(
-                    'min-h-[16rem] sm:min-h-[30rem]',
-                    'mb-12',
-                    'space-y-5',
-                  )}>
-                    <AdminUploadPanel
-                      shouldResize={!PRESERVE_ORIGINAL_UPLOADS}
-                      onLastUpload={async () => {
-                        'use server';
-                        // Update upload count in admin nav
-                        revalidatePath('/admin', 'layout');
-                      }}
-                    />
-                    <AdminBatchEditPanel />
-                    {children}
-                  </div>
+                  {!isHomePage && (
+                    <>
+                      <ShareModals />
+                      <RecipeModal />
+                      <AdminBatchEditPanel />
+                      <AdminUploadPanel
+                        shouldResize={!PRESERVE_ORIGINAL_UPLOADS}
+                        onLastUpload={async () => {
+                          'use server';
+                          revalidatePath('/admin', 'layout');
+                        }}
+                      />
+                    </>
+                  )}
+                  {children}
                 </main>
-                <Footer />
+                {!isHomePage && <Footer />}
               </div>
-              <CommandK />
+              {!isHomePage && <CommandK />}
             </SwrConfigClient>
             <Analytics debug={false} />
-            <SpeedInsights debug={false}  />
+            <SpeedInsights debug={false} />
             <PhotoEscapeHandler />
             <ToasterWithThemes />
           </ThemeProvider>
