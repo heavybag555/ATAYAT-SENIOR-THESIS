@@ -1,62 +1,75 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { clsx } from "clsx/lite";
+import { useState } from "react";
 
 export default function LoadingScreen() {
+  const router = useRouter();
+  const [isExiting, setIsExiting] = useState(false);
+
+  const handleClick = () => {
+    setIsExiting(true);
+    setTimeout(() => {
+      router.push('/grid');
+    }, 300); // Match this with CSS transition duration
+  };
+
   return (
     <div
+      onClick={handleClick}
       className={clsx(
         "fixed inset-0 z-50",
         "bg-black",
-        "flex flex-col items-center justify-center",
-        "min-h-screen w-full"
+        "flex flex-col items-center justify-between",
+        "min-h-screen w-full",
+        "cursor-pointer",
+        "transition-opacity duration-300",
+        isExiting && "opacity-0"
       )}
     >
-      <h1
-        className={clsx(
-          "font-['Cordata']", // Updated font family
-          "text-green-400",
-          "text-center",
-          "tracking-[0.2em]"
-        )}
-        style={{
-          fontSize: "36pt",
-          lineHeight: "30pt", // Added line height
-          textShadow: "0 0 10px rgba(74, 222, 128, 0.5)",
-        }}
-      >
-        A TALE AS YOUNG AS TIME
-      </h1>
-
-      <div className="flex gap-4 mt-8">
-        <Link
-          href="/grid" // Updated to correct grid route path
+      <div className="flex-1 flex flex-col items-center justify-center">
+        <h1
           className={clsx(
-            "px-6 py-2",
-            "border border-green-400",
+            "font-['Cordata']",
             "text-green-400",
-            "hover:bg-green-400 hover:text-black",
-            "transition-colors duration-200",
+            "text-center",
             "tracking-[0.2em]"
           )}
+          style={{
+            fontSize: "36pt",
+            lineHeight: "30pt",
+            textShadow: "0 0 10px rgba(74, 222, 128, 0.5)",
+          }}
         >
-          GALLERY
-        </Link>
+          A TALE AS YOUNG AS TIME
+        </h1>
 
-        <Link
-          href="/feed"
+        <h2
           className={clsx(
-            "px-6 py-2",
-            "border border-green-400",
-            "text-green-400", 
-            "hover:bg-green-400 hover:text-black",
-            "transition-colors duration-200",
-            "tracking-[0.2em]"
+            "text-green-400",
+            "text-center",
+            "tracking-[0.2em]",
+            "mt-[10px]"
           )}
+          style={{
+            fontSize: "18pt",
+            textShadow: "0 0 10px rgba(74, 222, 128, 0.5)",
+          }}
         >
-          FEED
-        </Link>
+          A BUM DIARY PHOTO ARCHIVE AND CAPSULE
+        </h2>
+      </div>
+
+      <div
+        className={clsx(
+          "text-green-400/50",
+          "text-sm",
+          "tracking-[0.2em]",
+          "mb-8"
+        )}
+      >
+        &lt;click anywhere on the screen to enter&gt;
       </div>
     </div>
   );
