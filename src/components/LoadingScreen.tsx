@@ -22,6 +22,7 @@ export default function LoadingScreen() {
         )}
         style={{
           fontSize: "36pt",
+          lineHeight: "30pt", // Added line height
           textShadow: "0 0 10px rgba(74, 222, 128, 0.5)",
         }}
       >
