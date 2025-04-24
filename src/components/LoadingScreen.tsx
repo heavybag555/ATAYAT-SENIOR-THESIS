@@ -15,7 +15,7 @@ export default function LoadingScreen() {
     >
       <h1
         className={clsx(
-          "font-['Paradise132']",
+          "font-['Cordata']", // Updated font family
           "text-green-400",
           "text-center",
           "tracking-[0.2em]"

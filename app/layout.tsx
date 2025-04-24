@@ -25,12 +25,18 @@ import { revalidatePath } from "next/cache";
 import RecipeModal from "@/recipe/RecipeModal";
 import ThemeColors from "@/app/ThemeColors";
 import Paradise132 from 'next/font/local';
+import localFont from 'next/font/local';
 
 import "../tailwind.css";
 
 const paradise132 = Paradise132({
   src: '../public/fonts/Web437_Paradise132_7x16.woff',
   variable: '--font-paradise132',
+});
+
+const cordata = localFont({
+  src: '../public/fonts/Web437_Cordata_PPC-400.woff',
+  variable: '--font-cordata',
 });
 
 export const metadata: Metadata = {
@@ -86,7 +92,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${paradise132.variable}`}
+      className={`${paradise132.variable} ${cordata.variable}`}
       // Suppress hydration errors due to next-themes behavior
       suppressHydrationWarning
     >
