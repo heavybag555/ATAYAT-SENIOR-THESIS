@@ -267,7 +267,7 @@
   label {
     @apply font-sans font-medium block uppercase text-xs
       text-green-400 dark:text-green-400 /* Changed to neon green for tag headings */
-      tracking-[0.1em]; /* Increased letter spacing */
+      tracking-[0.2em]; /* Increased letter spacing */
     @apply text-[0.825rem]; /* Increased from 0.75rem (xs) */
   }
   .control,
