@@ -13,78 +13,80 @@ export default function LoadingScreen() {
     setIsExiting(true);
     setTimeout(() => {
       router.push('/grid');
-    }, 300); // Match this with CSS transition duration
+    }, 300);
   };
 
   return (
     <div
       onClick={handleClick}
       className={clsx(
-        "fixed inset-0 z-50",
-        "flex flex-col items-center justify-between",
-        "min-h-screen w-full",
+        "fixed inset-0",
+        "w-screen h-screen",
+        "overflow-hidden",
         "cursor-pointer",
         "transition-opacity duration-300",
-        "relative", // Added for proper layering
         isExiting && "opacity-0"
       )}
     >
       {/* Background Image Layer */}
-      <Image
-        src="/images/landingscreen.png"  // Updated path to use images folder
-        alt="Landing Screen Background"
-        fill
-        className="object-cover"
-        priority
-        quality={100}
-        width={1920}
-        height={1080}
-      />
-
-      {/* Content Layer */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center">
-        <h1
-          className={clsx(
-            "font-['Cordata']",
-            "text-green-400",
-            "text-center",
-            "tracking-[0.2em]"
-          )}
-          style={{
-            fontSize: "36pt",
-            lineHeight: "30pt",
-            textShadow: "0 0 10px rgba(74, 222, 128, 0.5)",
-          }}
-        >
-          A TALE AS YOUNG AS TIME
-        </h1>
-
-        <h2
-          className={clsx(
-            "text-green-400",
-            "text-center",
-            "tracking-[0.2em]",
-            "mt-[10px]"
-          )}
-          style={{
-            fontSize: "18pt",
-            textShadow: "0 0 10px rgba(74, 222, 128, 0.5)",
-          }}
-        >
-          A BUM DIARY PHOTO ARCHIVE AND CAPSULE
-        </h2>
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/landingscreen.png"
+          alt="Landing Screen Background"
+          fill
+          className="object-cover w-full h-full"
+          priority
+          quality={100}
+        />
       </div>
 
-      <div
-        className={clsx(
-          "relative z-10", // Added for proper layering
-          "text-green-400/50",
-          "text-sm",
-          "tracking-[0.2em]",
-          "mb-8"
-        )}
-      >
-        &lt;click anywhere on the screen to enter&gt;
+      {/* Content Layer */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-between py-20">
+        <div className="flex-1 flex flex-col items-center justify-center">
+          <h1
+            className={clsx(
+              "font-['Cordata']",
+              "text-green-400",
+              "text-center",
+              "tracking-[0.2em]",
+              "relative"
+            )}
+            style={{
+              fontSize: "36pt",
+              lineHeight: "30pt",
+              textShadow: "0 0 10px rgba(74, 222, 128, 0.5)",
+            }}
+          >
+            A TALE AS YOUNG AS TIME
+          </h1>
+
+          <h2
+            className={clsx(
+              "text-green-400",
+              "text-center",
+              "tracking-[0.2em]",
+              "mt-[10px]",
+              "relative"
+            )}
+            style={{
+              fontSize: "18pt",
+              textShadow: "0 0 10px rgba(74, 222, 128, 0.5)",
+            }}
+          >
+            A BUM DIARY PHOTO ARCHIVE AND CAPSULE
+          </h2>
+        </div>
+
+        <div
+          className={clsx(
+            "text-green-400/50",
+            "text-sm",
+            "tracking-[0.2em]",
+            "relative"
+          )}
+        >
+          &lt;click anywhere on the screen to enter&gt;
+        </div>
       </div>
     </div>
   );
