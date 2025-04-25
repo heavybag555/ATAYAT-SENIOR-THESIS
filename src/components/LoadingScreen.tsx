@@ -31,14 +31,14 @@ export default function LoadingScreen() {
     >
       {/* Background Image Layer */}
       <Image
-        src="/landingscreen.png"
+        src="/images/landingscreen.png"  // Updated path to use images folder
         alt="Landing Screen Background"
         fill
         className="object-cover"
         priority
         quality={100}
-        width={1920} // Add this
-        height={1080} // Add this
+        width={1920}
+        height={1080}
       />
 
       {/* Content Layer */}
