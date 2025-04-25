@@ -25,8 +25,17 @@ export default function LoadingScreen() {
         "overflow-hidden",
         "cursor-pointer",
         "transition-opacity duration-300",
+        "z-[9999]", // Increase z-index to ensure it's above everything
+        "bg-black", // Add black background
         isExiting && "opacity-0"
       )}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
     >
       {/* Background Image Layer */}
       <div className="absolute inset-0 -z-10">
