@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { clsx } from "clsx/lite";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function LoadingScreen() {
   const router = useRouter();
@@ -20,15 +21,26 @@ export default function LoadingScreen() {
       onClick={handleClick}
       className={clsx(
         "fixed inset-0 z-50",
-        "bg-black",
         "flex flex-col items-center justify-between",
         "min-h-screen w-full",
         "cursor-pointer",
         "transition-opacity duration-300",
+        "relative", // Added for proper layering
         isExiting && "opacity-0"
       )}
     >
-      <div className="flex-1 flex flex-col items-center justify-center">
+      {/* Background Image Layer */}
+      <Image
+        src="/landingscreen.png"
+        alt="Landing Screen Background"
+        fill
+        className="object-cover"
+        priority
+        quality={100}
+      />
+
+      {/* Content Layer */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center">
         <h1
           className={clsx(
             "font-['Cordata']",
@@ -63,6 +75,7 @@ export default function LoadingScreen() {
 
       <div
         className={clsx(
+          "relative z-10", // Added for proper layering
           "text-green-400/50",
           "text-sm",
           "tracking-[0.2em]",
