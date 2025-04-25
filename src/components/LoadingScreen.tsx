@@ -41,7 +41,7 @@ export default function LoadingScreen() {
       </div>
 
       {/* Content Layer */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-between py-20">
+      <div className="relative z-10 h-full flex flex-col items-center">
         <div className="flex-1 flex flex-col items-center justify-center">
           <h1
             className={clsx(
@@ -82,7 +82,8 @@ export default function LoadingScreen() {
             "text-green-400/50",
             "text-sm",
             "tracking-[0.2em]",
-            "relative"
+            "absolute",
+            "bottom-8"
           )}
         >
           &lt;click anywhere on the screen to enter&gt;
