@@ -37,6 +37,8 @@ export default function LoadingScreen() {
         className="object-cover"
         priority
         quality={100}
+        width={1920} // Add this
+        height={1080} // Add this
       />
 
       {/* Content Layer */}
