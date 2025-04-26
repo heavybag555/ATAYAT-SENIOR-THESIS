@@ -260,8 +260,8 @@
   body {
     @apply font-mono text-sm md:text-base
       text-main
-      bg-black dark:bg-black /* Changed dark theme background to black */
-      tracking-[0.2em]; /* Maintained letter spacing */
+      bg-white dark:bg-black /* Changed from bg-black dark:bg-black */
+      tracking-[0.2em];
   }
   /* Forms */
   label {
@@ -294,7 +294,7 @@
       text-base
       shadow-xs
       bg-gray-100
-      dark:bg-black /* Changed from dark:bg-[#041804] to dark:bg-black */
+      dark:bg-black /* Changed from dark:bg-[#041804] to dark:bg_black */
       text-main dark:text-white
       active:bg-gray-200 dark:active:bg-gray-800
       hover:border-gray-300 dark:hover:border-gray-700
@@ -363,7 +363,7 @@
       text-base
       shadow-xs
       bg-gray-100 /* Default background color */
-      dark:bg-black /* Changed from dark:bg-[#041804] to dark:bg-black */
+      dark:bg-black /* Changed from dark:bg-[#041804] to dark:bg_black */
       text-main dark:text-white /* Ensure text is readable in dark mode */
       active:bg-gray-200 dark:active:bg-gray-800 /* Adjust active state */
       hover:border-gray-300 dark:hover:border-[#041804] /* Adjust hover border color */
