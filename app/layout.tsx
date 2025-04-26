@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       url: "/staricon.png",
       rel: "icon",
       type: "image/png",
-      sizes: "180x180",
+      sizes: "96x96",
     },
     {
       url: "/favicons/light.png",
@@ -73,10 +73,10 @@ export const metadata: Metadata = {
       sizes: "32x32",
     },
     {
-      url: "/staricon.png",
+      url: "/favicons/stariconsmall.png",
       rel: "icon",
       type: "image/png",
-      sizes: "180x180",
+      sizes: "96x96",
     },
   ],
 };
