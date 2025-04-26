@@ -24,19 +24,19 @@ import AdminUploadPanel from "@/admin/upload/AdminUploadPanel";
 import { revalidatePath } from "next/cache";
 import RecipeModal from "@/recipe/RecipeModal";
 import ThemeColors from "@/app/ThemeColors";
-import Paradise132 from 'next/font/local';
-import localFont from 'next/font/local';
+import Paradise132 from "next/font/local";
+import localFont from "next/font/local";
 
 import "../tailwind.css";
 
 const paradise132 = Paradise132({
-  src: '../public/fonts/Web437_Paradise132_7x16.woff',
-  variable: '--font-paradise132',
+  src: "../public/fonts/Web437_Paradise132_7x16.woff",
+  variable: "--font-paradise132",
 });
 
 const cordata = localFont({
-  src: '../public/fonts/Web437_Cordata_PPC-400.woff',
-  variable: '--font-cordata',
+  src: "../public/fonts/Web437_Cordata_PPC-400.woff",
+  variable: "--font-cordata",
 });
 
 export const metadata: Metadata = {
@@ -59,6 +59,12 @@ export const metadata: Metadata = {
       sizes: "96x96",
     },
     {
+      url: "/favicons/stariconsmall.png", // Corrected path to match actual location
+      rel: "icon",
+      type: "image/png",
+      sizes: "96x96",
+    },
+    {
       url: "/favicons/light.png",
       rel: "icon",
       media: "(prefers-color-scheme: light)",
@@ -72,12 +78,6 @@ export const metadata: Metadata = {
       type: "image/png",
       sizes: "32x32",
     },
-    {
-      url: "/favicons/stariconsmall.png",
-      rel: "icon",
-      type: "image/png",
-      sizes: "96x96",
-    },
   ],
 };
 
@@ -87,7 +87,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   // Check if we're on the home page
-  const isHomePage = typeof window !== 'undefined' && window.location.pathname === '/';
+  const isHomePage =
+    typeof window !== "undefined" && window.location.pathname === "/";
 
   return (
     <html
@@ -96,18 +97,17 @@ export default function RootLayout({
       // Suppress hydration errors due to next-themes behavior
       suppressHydrationWarning
     >
-      <body className={clsx(
-        // Center on large screens
-        '3xl:flex flex-col items-center',
-      )}>
+      <body
+        className={clsx(
+          // Center on large screens
+          "3xl:flex flex-col items-center"
+        )}
+      >
         <AppStateProvider>
           <ThemeColors />
           <ThemeProvider attribute="class" defaultTheme={DEFAULT_THEME}>
             <SwrConfigClient>
-              <div className={clsx(
-                'mx-3 mb-3',
-                'lg:mx-6 lg:mb-6',
-              )}>
+              <div className={clsx("mx-3 mb-3", "lg:mx-6 lg:mb-6")}>
                 {!isHomePage && <Nav navTitleOrDomain={NAV_TITLE_OR_DOMAIN} />}
                 <main>
                   {!isHomePage && (
@@ -118,8 +118,8 @@ export default function RootLayout({
                       <AdminUploadPanel
                         shouldResize={!PRESERVE_ORIGINAL_UPLOADS}
                         onLastUpload={async () => {
-                          'use server';
-                          revalidatePath('/admin', 'layout');
+                          "use server";
+                          revalidatePath("/admin", "layout");
                         }}
                       />
                     </>
