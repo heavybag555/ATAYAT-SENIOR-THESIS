@@ -453,17 +453,19 @@
       linear-gradient(
         to bottom,
         rgba(18, 16, 16, 0) 50%,
-        rgba(0, 0, 0, 0.10) 50%
+        rgba(0, 0, 0, 0.15) 50%
       ),
       /* RGB split */ 
       linear-gradient(
         90deg,
-        rgba(255, 0, 0, 0.03),
-        rgba(0, 255, 0, 0.02),
-        rgba(0, 0, 255, 0.03)
+        rgba(255, 0, 0, 0.05),
+        rgba(0, 255, 0, 0.04),
+        rgba(0, 0, 255, 0.05)
       );
     background-size: 100% 2px, 3px 100%;
-    animation: flicker 0.15s infinite;
+    animation: 
+      textFlicker 5s infinite,
+      scanlines 1s linear infinite;
   }
 
   /* Ensure media elements stay above the CRT effect */
@@ -486,4 +488,58 @@
   .dark .crt-overlay::before {
     opacity: 0.8; /* More visible in dark mode */
   }
+}
+
+/* Add these at the end of your existing tailwind.css file */
+@keyframes textFlicker {
+  0% { opacity: 0.98; }
+  1% { opacity: 0.92; }
+  2% { opacity: 0.98; }
+  67% { opacity: 1; }
+  68% { opacity: 0.93; }
+  69% { opacity: 1; }
+  70% { opacity: 0.97; }
+  71% { opacity: 0.92; }
+  72% { opacity: 0.9; }
+  73% { opacity: 0.97; }
+  74% { opacity: 1; }
+  75% { opacity: 0.94; }
+  76% { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(2px); }
+}
+
+/* Update or add the CRT overlay */
+.crt-overlay::before {
+  content: "";
+  @apply block absolute inset-0 pointer-events-none;
+  background: 
+    linear-gradient(
+      to bottom,
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.15) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.05),
+      rgba(0, 255, 0, 0.04),
+      rgba(0, 0, 255, 0.05)
+    );
+  background-size: 100% 2px, 3px 100%;
+  animation: 
+    textFlicker 5s infinite,
+    scanlines 1s linear infinite;
+}
+
+/* Add these styles to your existing body styles */
+body {
+  text-shadow: 
+    -1px 0 1px rgba(255, 0, 0, 0.3),
+    1px 0 1px rgba(0, 255, 0, 0.3),
+    0 0 3px rgba(0, 0, 255, 0.3);
+  animation: rgbShift 2s infinite;
 }
