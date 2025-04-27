@@ -445,7 +445,7 @@
     z-index: 1; /* Lower z-index for the overlay */
   }
 
-  /* Enhance media protection */
+  /* Enhance media protection and viewer functionality */
   img,
   video,
   canvas,
@@ -456,7 +456,7 @@
   .photo-container {
     @apply relative;
     position: relative;
-    z-index: 2; /* Higher z-index than overlay */
+    z-index: 2;
     isolation: isolate;
     
     /* Create clean background behind media */
@@ -469,13 +469,18 @@
     }
   }
 
-  /* Ensure proper background colors */
-  :root {
-    --bg-color: white;
+  /* Add specific styling for viewer elements */
+  .viewer-container,
+  .viewer-backdrop,
+  .viewer-canvas,
+  .viewer-footer,
+  .viewer-toolbar {
+    z-index: 9999 !important; /* Ensure viewer controls stay on top */
   }
 
-  :root.dark {
-    --bg-color: black;
+  .viewer-button,
+  .viewer-toolbar > ul > li {
+    z-index: 10000 !important; /* Ensure viewer buttons are clickable */
   }
 }
 
