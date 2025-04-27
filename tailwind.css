@@ -298,10 +298,10 @@
       text-base
       shadow-xs
       bg-gray-100
-      dark:bg-black /* Changed from dark:bg-[#041804] to dark:bg_black */
-      text-main dark:text-white
+      dark:bg-black
+      text-black dark:text-white /* Changed text-main to text-black for light mode */
       active:bg-gray-200 dark:active:bg-gray-800
-      hover:border-gray-300 dark:hover:border-gray-700
+      hover:border-gray-300 dark:hover:border-[#041804]
       disabled:cursor-not-allowed
       disabled:text-dim
       disabled:bg-gray-100 dark:disabled:bg-gray-900
@@ -384,14 +384,14 @@
   }
   button.primary,
   .button.primary {
-    @apply text-invert
-      bg-gray-900 dark:bg-[#041804] /* Updated dark theme primary button background */
+    @apply text-white /* Changed from text-invert to always be white */
+      bg-gray-900 dark:bg-[#041804]
       disabled:text-dim
       font-medium
       disabled:bg-gray-100 dark:disabled:bg-gray-900
       disabled:border-gray-200 dark:disabled:border-gray-700
-      border-gray-900 dark:border-[#041804] /* Updated border color */
-      hover:border-gray-900 dark:hover:border-[#041804] /* Updated hover border color */
+      border-gray-900 dark:border-[#041804]
+      hover:border-gray-900 dark:hover:border-[#041804]
       active:bg-gray-700 active:border-gray-700
       active:dark:bg-gray-800 active:dark:border-[#041804]
       shadow-none;
