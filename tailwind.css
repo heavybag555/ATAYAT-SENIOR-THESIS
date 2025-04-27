@@ -441,7 +441,7 @@
 
   /* CRT screen effect components */
   .crt-overlay {
-    @apply hidden dark:block fixed inset-0 pointer-events-none z-[9999];
+    @apply block fixed inset-0 pointer-events-none z-[9999];
   }
 
   /* Enhanced CRT screen door effect */
@@ -453,13 +453,13 @@
       linear-gradient(
         to bottom,
         rgba(18, 16, 16, 0) 50%,
-        rgba(0, 0, 0, 0.15) 50%
+        rgba(0, 0, 0, 0.10) 50%
       ),
       /* RGB split */ 
       linear-gradient(
         90deg,
         rgba(255, 0, 0, 0.03),
-        rgba(57, 255, 20, 0.02),
+        rgba(0, 255, 0, 0.02),
         rgba(0, 0, 255, 0.03)
       );
     background-size: 100% 2px, 3px 100%;
@@ -471,20 +471,19 @@
   video,
   canvas,
   iframe,
-  .viewer-container {
-    @apply relative z-[10000];
+  .viewer-container,
+  [data-photo-container],
+  [data-viewer] {
+    @apply relative isolate z-[10000];
+    /* isolate creates a new stacking context */
   }
 
-  /* Flicker animation for CRT effect */
-  @keyframes flicker {
-    0% {
-      opacity: 0.97;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.98;
-    }
+  /* Adjust opacity for light/dark modes */
+  .light .crt-overlay::before {
+    opacity: 0.5; /* Less visible in light mode */
+  }
+
+  .dark .crt-overlay::before {
+    opacity: 0.8; /* More visible in dark mode */
   }
 }
