@@ -35,7 +35,11 @@
 @import "./src/css/sonner.css";
 @import "./src/css/viewerjs.css";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark {
+  &:where(.dark, .dark *) {
+    @slot;
+  }
+}
 
 @custom-variant hover {
   @media (pointer: fine) {
@@ -212,7 +216,7 @@
 
 /* Background */
 @utility bg-main {
-  @apply bg-white dark:bg-black; /* Changed from dark:bg-[#041804] to dark:bg-black */
+  @apply bg-white dark:bg-black; /* Changed from dark:bg-[#041804] to dark:bg_black */
 }
 @utility bg-medium {
   @apply bg-gray-200 dark:bg-gray-700;
@@ -558,12 +562,7 @@
   animation: textFlicker 5s infinite, scanlines 1s linear infinite;
 }
 
-/* Update body text effects for dark mode only */
-body {
-  @apply dark:text-shadow-rgb;
-}
-
-/* Add utility class for RGB text shadow */
+/* Update the RGB text shadow utility */
 @layer utilities {
   .text-shadow-rgb {
     text-shadow: -1px 0 1px rgba(255, 0, 0, 0.3), 1px 0 1px rgba(0, 255, 0, 0.3),
