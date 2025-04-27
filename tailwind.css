@@ -439,32 +439,52 @@
     @apply text-black bg-neutral-200/95 rounded-lg;
   }
 
+  /* CRT screen effect components */
   .crt-overlay {
     @apply hidden dark:block fixed inset-0 pointer-events-none z-[9999];
   }
 
-  /* CRT screen door effect */
+  /* Enhanced CRT screen door effect */
   .crt-overlay::before {
     content: "";
     @apply block absolute inset-0 pointer-events-none;
-    background: linear-gradient(
+    background: 
+      /* Scanlines */ 
+      linear-gradient(
+        to bottom,
         rgba(18, 16, 16, 0) 50%,
         rgba(0, 0, 0, 0.15) 50%
       ),
+      /* RGB split */ 
       linear-gradient(
         90deg,
         rgba(255, 0, 0, 0.03),
         rgba(57, 255, 20, 0.02),
-        /* Updated to match your neon green */ rgba(0, 0, 255, 0.03)
+        rgba(0, 0, 255, 0.03)
       );
     background-size: 100% 2px, 3px 100%;
+    animation: flicker 0.15s infinite;
   }
 
-  /* Prevent CRT effect on media elements */
+  /* Ensure media elements stay above the CRT effect */
   img,
   video,
   canvas,
-  iframe {
-    @apply relative z-[10000]; /* Place above the CRT overlay */
+  iframe,
+  .viewer-container {
+    @apply relative z-[10000];
+  }
+
+  /* Flicker animation for CRT effect */
+  @keyframes flicker {
+    0% {
+      opacity: 0.97;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.98;
+    }
   }
 }

@@ -86,7 +86,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Check if we're on the home page
   const isHomePage =
     typeof window !== "undefined" && window.location.pathname === "/";
 
@@ -94,15 +93,15 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${paradise132.variable} ${cordata.variable}`}
-      // Suppress hydration errors due to next-themes behavior
       suppressHydrationWarning
     >
       <body
         className={clsx(
-          // Center on large screens
           "3xl:flex flex-col items-center"
         )}
       >
+        {/* Add the CRT overlay div here, before AppStateProvider */}
+        <div className="crt-overlay" aria-hidden="true" />
         <AppStateProvider>
           <ThemeColors />
           <ThemeProvider attribute="class" defaultTheme={DEFAULT_THEME}>
