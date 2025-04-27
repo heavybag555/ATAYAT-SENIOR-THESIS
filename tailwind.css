@@ -46,8 +46,8 @@
 }
 
 @theme {
-  --font-mono: "Cordata", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace; /* Updated font family */
+  --font-mono: "Cordata", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace; /* Updated font family */
   --breakpoint-xs: 24.5rem;
   --breakpoint-3xl: 102rem;
 
@@ -441,7 +441,7 @@
 
   /* CRT screen effect components */
   .crt-overlay {
-    @apply block fixed inset-0 pointer-events-none;
+    @apply hidden dark:block fixed inset-0 pointer-events-none;
     z-index: 1; /* Lower z-index for the overlay */
   }
 
@@ -458,10 +458,10 @@
     position: relative;
     z-index: 2;
     isolation: isolate;
-    
+
     /* Create clean background behind media */
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: -2px;
       background: var(--bg-color, white);
@@ -486,33 +486,64 @@
 
 /* Add these at the end of your existing tailwind.css file */
 @keyframes textFlicker {
-  0% { opacity: 0.98; }
-  1% { opacity: 0.92; }
-  2% { opacity: 0.98; }
-  67% { opacity: 1; }
-  68% { opacity: 0.93; }
-  69% { opacity: 1; }
-  70% { opacity: 0.97; }
-  71% { opacity: 0.92; }
-  72% { opacity: 0.9; }
-  73% { opacity: 0.97; }
-  74% { opacity: 1; }
-  75% { opacity: 0.94; }
-  76% { opacity: 1; }
-  100% { opacity: 0.98; }
+  0% {
+    opacity: 0.98;
+  }
+  1% {
+    opacity: 0.92;
+  }
+  2% {
+    opacity: 0.98;
+  }
+  67% {
+    opacity: 1;
+  }
+  68% {
+    opacity: 0.93;
+  }
+  69% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.97;
+  }
+  71% {
+    opacity: 0.92;
+  }
+  72% {
+    opacity: 0.9;
+  }
+  73% {
+    opacity: 0.97;
+  }
+  74% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.94;
+  }
+  76% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.98;
+  }
 }
 
 @keyframes scanlines {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(2px); }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(2px);
+  }
 }
 
-/* Update or add the CRT overlay */
+/* Update the CRT overlay effects for dark mode only */
 .crt-overlay::before {
   content: "";
   @apply block absolute inset-0 pointer-events-none;
-  background: 
-    linear-gradient(
+  background: linear-gradient(
       to bottom,
       rgba(18, 16, 16, 0) 50%,
       rgba(0, 0, 0, 0.15) 50%
@@ -524,16 +555,18 @@
       rgba(0, 0, 255, 0.05)
     );
   background-size: 100% 2px, 3px 100%;
-  animation: 
-    textFlicker 5s infinite,
-    scanlines 1s linear infinite;
+  animation: textFlicker 5s infinite, scanlines 1s linear infinite;
 }
 
-/* Add these styles to your existing body styles */
+/* Update body text effects for dark mode only */
 body {
-  text-shadow: 
-    -1px 0 1px rgba(255, 0, 0, 0.3),
-    1px 0 1px rgba(0, 255, 0, 0.3),
-    0 0 3px rgba(0, 0, 255, 0.3);
-  animation: rgbShift 2s infinite;
+  @apply dark:text-shadow-rgb;
+}
+
+/* Add utility class for RGB text shadow */
+@layer utilities {
+  .text-shadow-rgb {
+    text-shadow: -1px 0 1px rgba(255, 0, 0, 0.3), 1px 0 1px rgba(0, 255, 0, 0.3),
+      0 0 3px rgba(0, 0, 255, 0.3);
+  }
 }
