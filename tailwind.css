@@ -475,18 +475,26 @@
   iframe,
   .viewer-container,
   [data-photo-container],
-  [data-viewer] {
+  [data-viewer],
+  .photo-container {
     @apply relative isolate z-[10000];
-    /* isolate creates a new stacking context */
+    /* Create a clean area around media */
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -2px; /* Slightly larger overlap */
+      background: var(--bg-color, white);
+      z-index: -1;
+    }
   }
 
-  /* Adjust opacity for light/dark modes */
-  .light .crt-overlay::before {
-    opacity: 0.5; /* Less visible in light mode */
+  /* Update dark mode handling */
+  :root {
+    --bg-color: white;
   }
 
-  .dark .crt-overlay::before {
-    opacity: 0.8; /* More visible in dark mode */
+  :root.dark {
+    --bg-color: black;
   }
 }
 
