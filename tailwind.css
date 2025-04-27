@@ -441,34 +441,11 @@
 
   /* CRT screen effect components */
   .crt-overlay {
-    @apply block fixed inset-0 pointer-events-none z-[9999];
+    @apply block fixed inset-0 pointer-events-none;
+    z-index: 1; /* Lower z-index for the overlay */
   }
 
-  /* Enhanced CRT screen door effect */
-  .crt-overlay::before {
-    content: "";
-    @apply block absolute inset-0 pointer-events-none;
-    background: 
-      /* Scanlines */ 
-      linear-gradient(
-        to bottom,
-        rgba(18, 16, 16, 0) 50%,
-        rgba(0, 0, 0, 0.15) 50%
-      ),
-      /* RGB split */ 
-      linear-gradient(
-        90deg,
-        rgba(255, 0, 0, 0.05),
-        rgba(0, 255, 0, 0.04),
-        rgba(0, 0, 255, 0.05)
-      );
-    background-size: 100% 2px, 3px 100%;
-    animation: 
-      textFlicker 5s infinite,
-      scanlines 1s linear infinite;
-  }
-
-  /* Ensure media elements stay above the CRT effect */
+  /* Enhance media protection */
   img,
   video,
   canvas,
@@ -477,18 +454,22 @@
   [data-photo-container],
   [data-viewer],
   .photo-container {
-    @apply relative isolate z-[10000];
-    /* Create a clean area around media */
+    @apply relative;
+    position: relative;
+    z-index: 2; /* Higher z-index than overlay */
+    isolation: isolate;
+    
+    /* Create clean background behind media */
     &::before {
       content: '';
       position: absolute;
-      inset: -2px; /* Slightly larger overlap */
+      inset: -2px;
       background: var(--bg-color, white);
-      z-index: -1;
+      z-index: 1;
     }
   }
 
-  /* Update dark mode handling */
+  /* Ensure proper background colors */
   :root {
     --bg-color: white;
   }
