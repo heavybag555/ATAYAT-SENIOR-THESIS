@@ -87,17 +87,36 @@ export default function LoadingScreen() {
           </h2>
         </div>
 
-        <div
-          className={clsx(
-            "text-[#78C0E0]",
-            "text-sm",
-            "tracking-[0.2em]",
-            "absolute",
-            "bottom-8"
-          )}
+        <button
+          className={clsx("neon-button", "absolute", "bottom-8")}
+          style={{
+            fontFamily: '"Web437_Cordata_PPC-400", monospace',
+            fontSize: "10pt",
+            color: "rgb(120, 192, 224)",
+            backgroundColor: "black",
+            border: "1px solid rgb(120, 192, 224)",
+            padding: "6px 12px 4px 12px",
+            borderRadius: "20px",
+            textDecoration: "none",
+            display: "inline-block",
+            margin: "0",
+            letterSpacing: "2px",
+            transition: "all 0.1s ease",
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.borderColor = "black";
+            e.currentTarget.style.backgroundColor = "rgb(120, 192, 224)";
+            e.currentTarget.style.color = "black";
+            e.currentTarget.style.cursor = "pointer";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.borderColor = "rgb(120, 192, 224)";
+            e.currentTarget.style.backgroundColor = "black";
+            e.currentTarget.style.color = "rgb(120, 192, 224)";
+          }}
         >
-          &lt;click anywhere on the screen to enter&gt;
-        </div>
+          ENTER-ARCHIVE
+        </button>
       </div>
     </div>
   );
