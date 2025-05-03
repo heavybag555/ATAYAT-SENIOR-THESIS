@@ -173,45 +173,45 @@
   @apply text-gray-900;
 }
 @utility text-light {
-  @apply text-green-400; /* Changed to neon green */
+  @apply text-[#78C0E0]; /* Updated from neon green */
 }
 /* Text */
 @utility text-main {
-  @apply text-dark dark:text-green-400; /* Changed to neon green for dark mode */
+  @apply text-dark dark:text-[#78C0E0]; /* Updated from neon green for dark mode */
 }
 @utility text-invert {
   @apply text-light dark:text-dark;
 }
 @utility text-medium {
-  @apply text-gray-500 dark:text-green-500; /* Adjusted for dark mode */
+  @apply text-gray-500 dark:text-[#78C0E0]; /* Adjusted for dark mode */
 }
 @utility text-dim {
-  @apply text-gray-400 dark:text-green-600; /* Darker neon green for dim text */
+  @apply text-gray-400 dark:text-[#78C0E0]; /* Updated from darker neon green */
 }
 @utility text-extra-dim {
-  @apply text-gray-400/80 dark:text-green-400/70; /* Semi-transparent neon green */
+  @apply text-gray-400/80 dark:text-[#78C0E0]/70; /* Semi-transparent */
 }
 @utility text-extra-extra-dim {
-  @apply text-gray-200 dark:text-green-300/50; /* Very dim neon green */
+  @apply text-gray-200 dark:text-[#78C0E0]/50; /* Very dim */
 }
 @utility text-icon {
-  @apply text-gray-800 dark:text-green-400; /* Changed to match main text neon green for icons */
+  @apply text-gray-800 dark:text-[#78C0E0]; /* Updated for icons */
 }
 @utility text-error {
   @apply text-red-500 dark:text-red-400;
 }
 /* Border */
 @utility border-main {
-  @apply border border-gray-200 dark:border-green-400; /* Changed to neon green */
+  @apply border border-gray-200 dark:border-[#78C0E0]; /* Updated */
 }
 @utility divide-main {
-  @apply divide-gray-200 dark:divide-green-400; /* Changed to neon green */
+  @apply divide-gray-200 dark:divide-[#78C0E0]; /* Updated */
 }
 @utility border-medium {
-  @apply border border-gray-200 dark:border-green-400; /* Changed to neon green */
+  @apply border border-gray-200 dark:border-[#78C0E0]; /* Updated */
 }
 @utility divide-medium {
-  @apply divide-gray-200 dark:divide-green-400; /* Changed to neon green */
+  @apply divide-gray-200 dark:divide-[#78C0E0]; /* Updated */
 }
 
 /* Background */
@@ -341,13 +341,13 @@
       file:bg-white dark:file:bg-gray-950
       file:mr-2 file:my-2 file:px-4 file:py-1.5 file:rounded-md
       file:border-solid file:border
-      file:border-gray-200 dark:file:border-green-400 /* Changed to neon green */
+      file:border-gray-200 dark:file:border-[#78C0E0] /* Updated */
       file:cursor-pointer
       file:shadow-xs
       file:active:bg-gray-100
       file:disabled:bg-gray-100
-      file:hover:border-gray-300 file:dark:hover:border-green-300 /* Adjusted hover color */
-      file:hover:disabled:border-gray-200 file:dark:hover:disabled:border-green-400 /* Adjusted disabled hover color */
+      file:hover:border-gray-300 file:dark:hover:border-[#78C0E0] /* Updated */
+      file:hover:disabled:border-gray-200 file:dark:hover:disabled:border-[#78C0E0] /* Updated */
       file:active:disabled:bg-white
       file:hover:disabled:cursor-not-allowed;
   }
