@@ -1,19 +1,31 @@
-/* Loading screen specific styles that override standard site styles */
-body.loading-screen {
-  /* Override any conflicting styles when loading screen is active */
+/* Override styles for loading screen */
+body.loading-screen-body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: black !important;
+  color: white !important;
+  overflow: hidden !important;
+  height: 100vh !important;
+  width: 100vw !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  background-color: black !important;
-  overflow: hidden !important;
 }
 
-body.loading-screen * {
-  /* Ensure all elements within use proper font */
+body.loading-screen-body * {
   font-family: "Web437_Cordata_PPC-400", monospace !important;
 }
 
-/* Ensure the loading screen canvas gets proper z-index */
-#sketch-holder canvas {
+body.loading-screen-body #sketch-holder {
+  z-index: 10;
+}
+
+body.loading-screen-body .enter-section {
+  position: relative;
   z-index: 100;
+}
+
+body.loading-screen-body .neon-button {
+  z-index: 1000;
+  position: relative;
 }

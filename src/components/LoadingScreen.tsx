@@ -24,7 +24,7 @@ export default function LoadingScreen() {
           font-style: normal;
         }
         
-        body.loading-screen {
+        body.loading-screen-body {
           width: 100%;
           height: 100%;
           margin: 0;
@@ -98,11 +98,11 @@ export default function LoadingScreen() {
           border-radius: 20px;
           text-decoration: none;
           display: inline-block;
-          margin: 0;
+          margin: 10px 0;
           letter-spacing: 2px;
           cursor: pointer;
           position: relative;
-          z-index: 100; /* Increased z-index to ensure visibility */
+          z-index: 100;
         }
         
         .neon-button:hover {
@@ -133,6 +133,14 @@ export default function LoadingScreen() {
         
         .side-text:last-child {
           justify-content: flex-start;
+        }
+        
+        .enter-section {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 20px;
+          margin-bottom: 25px;
         }
         
         @media screen and (max-width: 900px) {
@@ -171,15 +179,8 @@ export default function LoadingScreen() {
       `;
       document.head.appendChild(style);
 
-      // Add a class to the body to apply the loading screen styles
-      document.body.classList.add("loading-screen");
-
-      // Remove keyboard navigation handling
-
       // Cleanup function
       return () => {
-        document.body.classList.remove("loading-screen");
-        // Clean up event listeners here if needed
         if (style.parentNode) {
           style.parentNode.removeChild(style);
         }
@@ -557,7 +558,7 @@ export default function LoadingScreen() {
           function keyPressed() {
             if (keyCode === 32) {
               isAnimating = !isAnimating;
-              
+          
               if (!isAnimating) {
                 redraw();
               }
@@ -634,18 +635,18 @@ export default function LoadingScreen() {
             </a>
           </div>
         </div>
-        <div className="loading-headings">
-          <h2 className="loading-h2">CLICK-SPACEBAR-TO-LIVE-IN-THE-MOMENT</h2>
-          <br />
+        <div className="enter-section">
+          <div className="loading-headings">
+            <h2 className="loading-h2">CLICK-SPACEBAR-TO-LIVE-IN-THE-MOMENT</h2>
+          </div>
+          <button
+            id="enter-archive"
+            className="neon-button"
+            onClick={enterArchive}
+          >
+            ENTER-ARCHIVE
+          </button>
         </div>
-        <button
-          id="enter-archive"
-          className="neon-button"
-          onClick={enterArchive}
-          style={{ zIndex: 100 }}
-        >
-          ENTER-ARCHIVE
-        </button>
       </div>
     </>
   );
