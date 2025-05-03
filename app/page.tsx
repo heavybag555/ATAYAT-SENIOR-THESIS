@@ -14,6 +14,7 @@ import PhotoGridPage from "@/photo/PhotoGridPage";
 import { getDataForCategoriesCached } from "@/category/cache";
 import { getPhotosMetaCached } from "@/photo/cache";
 import LoadingScreen from "@/components/LoadingScreen";
+import { redirect } from "next/navigation";
 
 export const dynamic = "force-static";
 export const maxDuration = 60;
@@ -32,5 +33,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function HomePage() {
-  return <LoadingScreen />;
+  // This will happen on the server side
+  redirect("/grid");
 }
