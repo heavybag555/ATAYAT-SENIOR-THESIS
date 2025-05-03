@@ -12,7 +12,7 @@ export default function LoadingScreen() {
   const handleClick = () => {
     setIsExiting(true);
     setTimeout(() => {
-      router.push('/grid');
+      router.push("/grid");
     }, 300);
   };
 
@@ -30,7 +30,7 @@ export default function LoadingScreen() {
         isExiting && "opacity-0"
       )}
       style={{
-        position: 'fixed',
+        position: "fixed",
         top: 0,
         left: 0,
         right: 0,
@@ -58,7 +58,9 @@ export default function LoadingScreen() {
               "text-green-400",
               "text-center",
               "tracking-[0.2em]",
-              "relative"
+              "relative",
+              "text-[#78C0E0]",
+              "[text-shadow:_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_2px_2px_0_#000]"
             )}
             style={{
               fontSize: "36pt",
