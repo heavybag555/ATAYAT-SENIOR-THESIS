@@ -28,6 +28,7 @@ import Paradise132 from "next/font/local";
 import localFont from "next/font/local";
 
 import "../tailwind.css";
+import "@/css/loading-screen.css";
 
 const paradise132 = Paradise132({
   src: "../public/fonts/Web437_Paradise132_7x16.woff",

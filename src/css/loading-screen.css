@@ -1,0 +1,19 @@
+/* Loading screen specific styles that override standard site styles */
+body.loading-screen {
+  /* Override any conflicting styles when loading screen is active */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background-color: black !important;
+  overflow: hidden !important;
+}
+
+body.loading-screen * {
+  /* Ensure all elements within use proper font */
+  font-family: "Web437_Cordata_PPC-400", monospace !important;
+}
+
+/* Ensure the loading screen canvas gets proper z-index */
+#sketch-holder canvas {
+  z-index: 100;
+}
