@@ -34,6 +34,7 @@ export default function LoadingScreen() {
           justify-content: center;
           align-items: center;
           min-height: 100vh;
+          overflow: hidden;
         }
         
         .loading-container {
@@ -100,6 +101,8 @@ export default function LoadingScreen() {
           margin: 0;
           letter-spacing: 2px;
           cursor: pointer;
+          position: relative;
+          z-index: 100; /* Increased z-index to ensure visibility */
         }
         
         .neon-button:hover {
@@ -171,22 +174,12 @@ export default function LoadingScreen() {
       // Add a class to the body to apply the loading screen styles
       document.body.classList.add("loading-screen");
 
-      // Set up space bar event and enter button click
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.code === "Space") {
-          const enterButton = document.getElementById("enter-archive");
-          if (enterButton) {
-            enterButton.click();
-          }
-        }
-      };
-
-      document.addEventListener("keydown", handleKeyDown);
+      // Remove keyboard navigation handling
 
       // Cleanup function
       return () => {
         document.body.classList.remove("loading-screen");
-        document.removeEventListener("keydown", handleKeyDown);
+        // Clean up event listeners here if needed
         if (style.parentNode) {
           style.parentNode.removeChild(style);
         }
@@ -564,7 +557,7 @@ export default function LoadingScreen() {
           function keyPressed() {
             if (keyCode === 32) {
               isAnimating = !isAnimating;
-          
+              
               if (!isAnimating) {
                 redraw();
               }
@@ -649,6 +642,7 @@ export default function LoadingScreen() {
           id="enter-archive"
           className="neon-button"
           onClick={enterArchive}
+          style={{ zIndex: 100 }}
         >
           ENTER-ARCHIVE
         </button>

@@ -96,15 +96,8 @@ export default function RootLayout({
       className={`${paradise132.variable} ${cordata.variable}`}
       suppressHydrationWarning
     >
-      <body
-        className={clsx(
-          "3xl:flex flex-col items-center"
-        )}
-      >
-        {/* Add the CRT overlay div here, before AppStateProvider */}
-        <div className="crt-overlay" aria-hidden="true" />
+      <body className={clsx("3xl:flex flex-col items-center")}>
         <AppStateProvider>
-          <ThemeColors />
           <ThemeProvider attribute="class" defaultTheme={DEFAULT_THEME}>
             <SwrConfigClient>
               <div className={clsx("mx-3 mb-3", "lg:mx-6 lg:mb-6")}>

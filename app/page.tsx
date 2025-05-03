@@ -8,8 +8,6 @@ import { cache } from "react";
 import { getPhotos } from "@/photo/db/query";
 import { GRID_HOMEPAGE_ENABLED } from "@/app/config";
 import LoadingScreen from "@/components/LoadingScreen";
-import { getPhotosMetaCached } from "@/photo/cache";
-import Link from "next/link";
 
 export const dynamic = "force-static";
 export const maxDuration = 60;
@@ -28,12 +26,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function HomePage() {
-  return (
-    <>
-      <LoadingScreen />
-      <Link href="/" className="nav-link">
-        Home
-      </Link>
-    </>
-  );
+  return <LoadingScreen />;
 }
