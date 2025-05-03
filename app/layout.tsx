@@ -28,7 +28,6 @@ import Paradise132 from "next/font/local";
 import localFont from "next/font/local";
 
 import "../tailwind.css";
-import "@/css/loading-screen.css";
 
 const paradise132 = Paradise132({
   src: "../public/fonts/Web437_Paradise132_7x16.woff",
@@ -84,13 +83,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { slug?: string[] };
 }) {
-  // If we're at the root path with no parameters, it's the homepage/loading screen
-  const isHomePage = !params.slug || params.slug.length === 0;
+  const isHomePage =
+    typeof window !== "undefined" && window.location.pathname === "/";
 
   return (
     <html
@@ -100,33 +97,36 @@ export default function RootLayout({
     >
       <body
         className={clsx(
-          "3xl:flex flex-col items-center",
-          isHomePage && "loading-screen-body"
+          "3xl:flex flex-col items-center"
         )}
       >
+        {/* Add the CRT overlay div here, before AppStateProvider */}
+        <div className="crt-overlay" aria-hidden="true" />
         <AppStateProvider>
+          <ThemeColors />
           <ThemeProvider attribute="class" defaultTheme={DEFAULT_THEME}>
             <SwrConfigClient>
-              {!isHomePage && (
-                <div className={clsx("mx-3 mb-3", "lg:mx-6 lg:mb-6")}>
-                  <Nav navTitleOrDomain={NAV_TITLE_OR_DOMAIN} />
-                  <main>
-                    <ShareModals />
-                    <RecipeModal />
-                    <AdminBatchEditPanel />
-                    <AdminUploadPanel
-                      shouldResize={!PRESERVE_ORIGINAL_UPLOADS}
-                      onLastUpload={async () => {
-                        "use server";
-                        revalidatePath("/admin", "layout");
-                      }}
-                    />
-                    {children}
-                  </main>
-                  <Footer />
-                </div>
-              )}
-              {isHomePage && children}
+              <div className={clsx("mx-3 mb-3", "lg:mx-6 lg:mb-6")}>
+                {!isHomePage && <Nav navTitleOrDomain={NAV_TITLE_OR_DOMAIN} />}
+                <main>
+                  {!isHomePage && (
+                    <>
+                      <ShareModals />
+                      <RecipeModal />
+                      <AdminBatchEditPanel />
+                      <AdminUploadPanel
+                        shouldResize={!PRESERVE_ORIGINAL_UPLOADS}
+                        onLastUpload={async () => {
+                          "use server";
+                          revalidatePath("/admin", "layout");
+                        }}
+                      />
+                    </>
+                  )}
+                  {children}
+                </main>
+                {!isHomePage && <Footer />}
+              </div>
               {!isHomePage && <CommandK />}
             </SwrConfigClient>
             <Analytics debug={false} />
