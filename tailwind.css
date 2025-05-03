@@ -270,7 +270,7 @@
   /* Forms */
   label {
     @apply font-sans font-medium block uppercase text-xs
-      text-[#78C0E0] dark:text-[#78C0E0]; /* Changed from text-green-400 dark:text-green-400 */
+      text-[#78C0E0] dark:text-[#78C0E0] /* Changed from text-green-400 dark:text-green-400 */
     tracking-[0.2em]; /* Increased letter spacing */
     @apply text-[0.825rem]; /* Increased from 0.75rem (xs) */
   }
