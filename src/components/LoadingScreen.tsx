@@ -55,11 +55,10 @@ export default function LoadingScreen() {
           <h1
             className={clsx(
               "font-['Cordata']",
-              "text-green-400",
+              "text-[#78C0E0]",
               "text-center",
               "tracking-[0.2em]",
               "relative",
-              "text-[#78C0E0]",
               "[text-shadow:_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_2px_2px_0_#000]"
             )}
             style={{
@@ -73,7 +72,7 @@ export default function LoadingScreen() {
 
           <h2
             className={clsx(
-              "text-green-400",
+              "text-[#78C0E0]",
               "text-center",
               "tracking-[0.2em]",
               "mt-[10px]",
@@ -90,7 +89,7 @@ export default function LoadingScreen() {
 
         <div
           className={clsx(
-            "text-green-400/50",
+            "text-[#78C0E0]",
             "text-sm",
             "tracking-[0.2em]",
             "absolute",
