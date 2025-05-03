@@ -565,7 +565,7 @@
 /* Update the RGB text shadow utility */
 @layer utilities {
   .text-shadow-rgb {
-    text-shadow: -1px 0 1px rgba(255, 0, 0, 0.3), 1px 0 1px rgba(0, 255, 0, 0.3),
+    text-shadow: -1px 0 1px rgba(255, 0, 0, 0.3), 1px 0 1px rgba(195, 231, 255, 0.3),
       0 0 3px rgba(0, 0, 255, 0.3);
   }
 }

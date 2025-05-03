@@ -88,9 +88,13 @@ export default function LoadingScreen() {
         </div>
 
         <button
-          className={clsx("neon-button", "absolute", "bottom-8")}
+          className={clsx(
+            "neon-button",
+            "absolute",
+            "bottom-8",
+            "font-['Cordata']"
+          )}
           style={{
-            fontFamily: '"Web437_Cordata_PPC-400", monospace',
             fontSize: "10pt",
             color: "rgb(120, 192, 224)",
             backgroundColor: "black",
